@@ -75,7 +75,13 @@ type RenderProps<T> = {
     </TouchableOpacity>
   )}/>
 
-<Galileo.View renderLeftBarButtonItems={() => /* TODO: not sure how to handle an array here */} />
+<Galileo.View>
+  <Galileo.View.LeftBarButtonItems>
+    <Galileo.BarButtonItem />
+    <Galileo.BarButtonItem />
+    <Galileo.BarButtonItem />
+  </Galileo.View.LeftBarButtonItems>
+</Galileo.View>
 
 // Plain [[UINavigationController alloc] initWithRootViewController]
 <Galileo.Navigator RootComponent={One} />
