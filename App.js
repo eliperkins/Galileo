@@ -5,9 +5,10 @@
  */
 
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Button, Platform, StyleSheet, Text, View } from 'react-native';
 
 import { Navigator } from './src';
+import GalileoView from './src/View';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n Cmd+D or shake for dev menu',
@@ -17,14 +18,19 @@ const instructions = Platform.select({
 });
 
 const RootComponent = () => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>Welcome to React Native!</Text>
-    <Text style={styles.instructions}>To get started, edit App.js</Text>
-    <Text style={styles.instructions}>{instructions}</Text>
-  </View>
+  <GalileoView
+    style={styles.container}
+    render={({ push }) => (
+      <View style={styles.container}>
+        <Button title="Push me" onPress={() => push(RootComponent)} />
+      </View>
+    )}
+  />
 );
 
-export default () => <Navigator RootComponent={RootComponent} />;
+export default () => (
+  <Navigator RootComponent={RootComponent} style={{ flex: 1 }} />
+);
 
 const styles = StyleSheet.create({
   container: {

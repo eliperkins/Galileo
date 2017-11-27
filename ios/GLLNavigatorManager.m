@@ -1,3 +1,4 @@
+#import <React/RCTBridgeModule.h>
 #import "GLLNavigatorManager.h"
 #import "GLLNavigator.h"
 

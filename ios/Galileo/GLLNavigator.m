@@ -33,5 +33,10 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
   self.navigatorController.view.frame = self.bounds;
 }
 
+- (void)insertReactSubview:(UIView *)subview atIndex:(NSInteger)atIndex
+{
+  // This is the hook from children in to our UINavigationController
+  [self.navigatorController setViewControllers:@[subview.reactViewController] animated:YES];
+}
 
 @end
